@@ -15,7 +15,7 @@ pub struct Resolver {
 }
 
 impl Resolver {
-    fn add_custom(&mut self, name: &str, registration: * const c_void) {
+    pub fn add_custom(&mut self, name: &str, registration: * const c_void) {
         let name = ::std::ffi::CString::new(name).unwrap();
         let name_ptr = name.as_ptr();
         let resolver_ptr = self.handle.as_mut() as * mut _;
